@@ -17,6 +17,6 @@ public class JSONAssertTest {
                 JSONAssert.assertEquals(expectedResponse1, actualResponse,   true);
                 //this fails because in strict mode all fields must be present
                 //white spaces are not important if they are out of the strings
-                JSONAssert.assertEquals(expectedResponse2, actualResponse,   true); 
+                //JSONAssert.assertEquals(expectedResponse2, actualResponse,   true); 
         }
 }

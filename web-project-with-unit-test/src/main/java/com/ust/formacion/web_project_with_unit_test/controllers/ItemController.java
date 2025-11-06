@@ -1,5 +1,7 @@
 package com.ust.formacion.web_project_with_unit_test.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,5 +25,10 @@ public class ItemController {
         @GetMapping("/item-from-business-service")
         public Item itemFromBusinessService() {
                 return businessService.retrieveHardcodedItem();
+        }
+
+        @GetMapping("/all-items-from-business-service-bd")
+        public List<Item> allItemsFromBusinessServiceBd() {
+                return businessService.retrieveAllItemFromDatabase();
         }
 }

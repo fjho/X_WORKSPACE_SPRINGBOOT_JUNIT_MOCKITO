@@ -1,11 +1,24 @@
 package com.ust.formacion.web_project_with_unit_test.model;
 
+
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Transient;
+
+@Entity
 public class Item {
 
+        @Id
         private int id;
         private String name;
         private int price;
         private int quantity;
+
+        @Transient
+        private int total;
+
+        
 
         public Item(int id, String name, int price, int quantity) {
             this.id = id;
@@ -33,12 +46,17 @@ public class Item {
             return quantity;
         }
 
+        public int getTotal() {
+            return price * quantity;
+        }
+
         public String toString() {
             return "{" +
                     "id=" + id +
                     ", name='" + name + '\'' +
                     ", price=" + price +
                     ", quantity=" + quantity +
+                    ", total=" + total +
                     '}';
         }
 }
