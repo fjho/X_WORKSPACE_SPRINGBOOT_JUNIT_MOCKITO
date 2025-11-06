@@ -88,8 +88,6 @@ class BasicUnitTestingApplicationTests {
 
 	@Test
 	public void calculateSum_basic_null() {
-		int[] data = {1, 2, 3};
-		int result = business.calculateSum(data);
 		assertNull(null, "Valor esperado es null");	
 	}
 

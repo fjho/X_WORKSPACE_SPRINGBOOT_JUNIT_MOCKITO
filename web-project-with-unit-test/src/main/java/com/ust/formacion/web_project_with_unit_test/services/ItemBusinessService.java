@@ -10,7 +10,7 @@ import com.ust.formacion.web_project_with_unit_test.repositories.ItemRepository;
 
 @Service("itemBusinessService")
 public class ItemBusinessService implements ItemBusinessServiceIfz {
-
+    
     @Autowired
     private ItemRepository itemRepository;   
 
@@ -26,6 +26,10 @@ public class ItemBusinessService implements ItemBusinessServiceIfz {
 
     @Override
     public List<Item> retrieveAllItemFromDatabase() {
-        return itemRepository..findAll();
+        List<Item> items = itemRepository.findAll();
+        for(Item item : items) {
+            item.setTotal(item.getPrice() * item.getQuantity());
+        }
+        return items;
     }
 }

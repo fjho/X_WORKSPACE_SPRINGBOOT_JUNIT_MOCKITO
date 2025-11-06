@@ -13,7 +13,9 @@ import org.junit.jupiter.api.TestInfo;
 public class MockvsSpyTests {
     @Test
     public void mockTest(TestInfo testInfo) {
-        ArrayList<String> arrayListMock = mock(ArrayList.class);
+        
+        @SuppressWarnings("unchecked")
+        ArrayList<String> arrayListMock = (ArrayList<String>) mock(ArrayList.class);
 
         System.out.println(testInfo.getDisplayName()+": "+arrayListMock.get(0));//returns null because it is a mock object
         arrayListMock.add("MOCK01");
@@ -27,7 +29,8 @@ public class MockvsSpyTests {
 
     @Test
     public void spyTest(TestInfo testInfo) {
-        ArrayList<String> arrayListSpy = spy(ArrayList.class);
+        @SuppressWarnings("unchecked")
+        ArrayList<String> arrayListSpy = (ArrayList<String>) spy(ArrayList.class);
 
         //System.out.println(arrayListSpy.get(0));//returns an exception because it is the real behavior fo the ArrayList object
 
