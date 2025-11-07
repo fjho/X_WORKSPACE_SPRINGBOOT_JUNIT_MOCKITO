@@ -1,4 +1,4 @@
-package com.ust.formacion.web_project_with_unit_test.controllers;
+package com.ust.formacion.web_project_with_unit_test.services;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
@@ -16,7 +16,6 @@ import org.skyscreamer.jsonassert.JSONAssert;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ust.formacion.web_project_with_unit_test.model.Item;
 import com.ust.formacion.web_project_with_unit_test.repositories.ItemRepository;
-import com.ust.formacion.web_project_with_unit_test.services.ItemBusinessService;
 
 //TESTING usando Injected MOCKS Junit5 + Mockito
 //Activa el soporte de Mockito en JUnit 5. Es obligatorio si usas anotaciones como @Mock y @InjectMocks.

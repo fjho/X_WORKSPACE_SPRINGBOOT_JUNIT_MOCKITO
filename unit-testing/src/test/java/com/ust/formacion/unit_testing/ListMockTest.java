@@ -72,9 +72,9 @@ public class ListMockTest {
     //Verify that the methods of a mock are being called the expected number of times
     public void verificationsBasics() {
         //SUT (system Under Test)(Codigo que se esta probando)
-        String value1 = mock.get(0);
-        String value2 = mock.get(1);
-        String value3 = mock.get(1);
+        mock.get(0);
+        mock.get(1);
+        mock.get(1);
 
         //Verifications about the calls made to the get method of the mock list
         //verify that get(0) was called once
