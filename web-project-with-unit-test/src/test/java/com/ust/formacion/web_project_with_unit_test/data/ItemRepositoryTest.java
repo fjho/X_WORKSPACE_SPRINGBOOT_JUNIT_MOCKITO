@@ -3,34 +3,47 @@ package com.ust.formacion.web_project_with_unit_test.data;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.core.env.Environment;
+import org.springframework.test.context.ActiveProfiles;
 
 import com.ust.formacion.web_project_with_unit_test.model.Item;
 import com.ust.formacion.web_project_with_unit_test.repositories.ItemRepository;
 
+//Para que cargue la configuracion de la BD de pruebas del fichero de properties 
+//src/test/resources/application-test.properties
+@ActiveProfiles("test")
 @DataJpaTest
 public class ItemRepositoryTest {
+
+    @Autowired
+    private Environment environment;
 
     @Autowired
     private ItemRepository itemRepository;
 
     @Test
-    //La suma de todos los elementos es 7
-    //los definidos en src/main/java/resources/data.sql (3)
-    //los definidos en test/resources/data.sql (4)
+    //Las consultas se hacen a la BD H" que se crea en memoria definida en src/test/resources/application-test.properties
+    //En esta BD se cargan los datos definidos en test/resources/data-test.sql (4)
     public void testFindAll(){
+        System.out.println("Perfil activo: " + Arrays.toString(environment.getActiveProfiles()));
+        System.out.println("DB URL: " + environment.getProperty("spring.datasource.url"));
         List<Item>items = itemRepository.findAll();
-        assertEquals(7, items.size());
+        assertEquals(4, items.size());
     }
 
     @Test
-    //El Item con id=10001 esta en el fichero test/resources/data.sql 
+    //Las consultas se hacen a la BD H" que se crea en memoria definida en src/test/resources/application-test.properties
+    //En esta BD se cargan los datos definidos en test/resources/data-test.sql (4)
     public void testFindById(){
+        System.out.println("Perfil activo: " + Arrays.toString(environment.getActiveProfiles()));
+        System.out.println("DB URL: " + environment.getProperty("spring.datasource.url"));
         Optional<Item> item = itemRepository.findById(10001);
         assertTrue(item.isPresent());
     }
