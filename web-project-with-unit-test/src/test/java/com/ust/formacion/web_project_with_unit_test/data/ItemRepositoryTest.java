@@ -12,13 +12,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.core.env.Environment;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.TestPropertySource;
 
 import com.ust.formacion.web_project_with_unit_test.model.Item;
 import com.ust.formacion.web_project_with_unit_test.repositories.ItemRepository;
 
 //Para que cargue la configuracion de la BD de pruebas del fichero de properties 
 //src/test/resources/application-test.properties
-@ActiveProfiles("test")
+//@ActiveProfiles("test")
+//Alternativa a la anotacion @ActiveProfiles
+//Se especifica directamente el fichero de properties a cargar
+//@TestPropertySource(locations = "classpath:test-configuration.properties")
 @DataJpaTest
 public class ItemRepositoryTest {
 
