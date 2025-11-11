@@ -11,9 +11,8 @@ import org.junit.jupiter.api.Test;
 import org.skyscreamer.jsonassert.JSONAssert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.context.TestConfiguration;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.RequestBuilder;
@@ -38,6 +37,11 @@ public class ItemControllerWithHttpRequestMokitoJunitAndSpringBootTest {
     //FIN En JUNIT4
 
     //En JUNIT5
+    @MockitoBean(name = "itemBusinessService")
+    private ItemBusinessServiceIfz businessServiceMock;
+    //FIN En JUNIT5
+    
+    //En JUNIT5 (OTRA FORMA DE HACERLO)
         //Necesario para hacer la prueba realizando la peticion HTTP al controlador con WebMvcTest
         //@WebMvcTest solo carga la capa web (controladores), no los servicios reales. por eso ItemBusinessServiceIfz no está disponible
         //Sirve para registrar un bean mock en el contexto de Spring durante las pruebas.
@@ -45,6 +49,7 @@ public class ItemControllerWithHttpRequestMokitoJunitAndSpringBootTest {
         //@Bean indica que el método produce un bean creado con mokito, Spring lo registra en el contexto
         //de la aplicación de prueba, por lo que cualquier componente que dependa de 
         //ItemBusinessServiceIfz (ItemController) recibirá este mock.
+        /*
         @TestConfiguration
         static class TestConfig {
             @Bean
@@ -57,7 +62,8 @@ public class ItemControllerWithHttpRequestMokitoJunitAndSpringBootTest {
         //para poder utilizar Mockito.when en los tests
         @Autowired
         private ItemBusinessServiceIfz businessServiceMock;
-    //FIN En JUNIT5
+        */
+    //FIN En JUNIT5 (OTRA FORMA DE HACERLO)
 
     //TESTS LOGICA CONTROLADOR CON PETICION HTTP
         //In this test we only launch the web layer so we can test our controller
