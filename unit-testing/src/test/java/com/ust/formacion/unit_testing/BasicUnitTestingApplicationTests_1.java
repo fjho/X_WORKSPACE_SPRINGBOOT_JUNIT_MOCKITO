@@ -189,4 +189,11 @@ class BasicUnitTestingApplicationTests_1 {
 		int result = business.calculateSum(data);
 		assertEquals(0, result);	
 	}
+
+	@Test
+	public void calculateSumFunctional_basic_equals() {
+		int[] data = {1, 2, 3};
+		int result = business.calculateSumFunctional(data);
+		assertEquals(6, result, "Valor esperado es 6");	
+	}
 }

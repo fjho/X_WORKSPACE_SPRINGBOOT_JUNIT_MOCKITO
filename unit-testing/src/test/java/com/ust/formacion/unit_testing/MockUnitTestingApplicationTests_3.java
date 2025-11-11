@@ -30,4 +30,12 @@ class MockUnitTestingApplicationTests_3 {
 		BusinessService business = new BusinessService(dataServiceMock);
 		assertEquals(0, business.calculateSumUsingDataService());	
 	}
+
+	@Test
+	public void calculateSumFunctionalUsingDataService_basic() {
+		//mocking
+		when(dataServiceMock.getData()).thenReturn(new int[] {1, 2, 3});
+		BusinessService business = new BusinessService(dataServiceMock);
+		assertEquals(6, business.calculateSumUsingDataService());
+	}
 }

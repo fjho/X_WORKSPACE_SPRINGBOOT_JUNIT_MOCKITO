@@ -1,5 +1,7 @@
 package com.ust.formacion.unit_testing.business;
 
+import java.util.Arrays;
+
 import com.ust.formacion.unit_testing.data.DataService;
 
 public class BusinessService {
@@ -28,5 +30,14 @@ public class BusinessService {
             sum += value;
         }
         return sum;
+    }
+
+    public int calculateSumFunctional(int[] data) {
+        return Arrays.stream(data).reduce(Integer::sum).orElse(0);
+    }
+
+    public int calculateSumFunctional() {
+        int[] data = dataService.getData();
+        return Arrays.stream(data).reduce(Integer::sum).orElse(0);
     }
 }
