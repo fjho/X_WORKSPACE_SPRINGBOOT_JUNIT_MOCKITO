@@ -29,7 +29,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import com.ust.formacion.unit_testing.business.BusinessService;
 
 //TESTING BASICO SIN MOCKS, solo usando JUnit5 (Jupiter)
-class BasicUnitTestingApplicationTests {
+class BasicUnitTestingApplicationTests_1 {
 	static BusinessService business;
 
 	@BeforeAll

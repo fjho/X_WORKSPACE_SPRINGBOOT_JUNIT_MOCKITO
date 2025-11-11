@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 
 
-public class MockvsSpyTests {
+public class MockvsSpyTests_6 {
     @Test
     public void mockTest(TestInfo testInfo) {
         

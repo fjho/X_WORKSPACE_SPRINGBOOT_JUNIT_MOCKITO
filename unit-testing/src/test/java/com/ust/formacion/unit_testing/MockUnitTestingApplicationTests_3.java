@@ -10,7 +10,7 @@ import com.ust.formacion.unit_testing.business.BusinessService;
 import com.ust.formacion.unit_testing.data.DataService;
 
 //TESTING usando MOCKS
-class MockUnitTestingApplicationTests {
+class MockUnitTestingApplicationTests_3 {
 
 	DataService dataServiceMock = mock(DataService.class);
 

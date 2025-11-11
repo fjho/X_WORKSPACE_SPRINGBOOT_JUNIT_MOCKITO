@@ -22,7 +22,7 @@ import org.mockito.MockitoAnnotations;
 
 //OPCION2: using @Mock annotation and initializing the mock with MockitoExtension in the test class
 //@ExtendWith(MockitoExtension.class)
-public class ListMockTest {
+public class ListMockTest_5 {
 
     //OPCION1: manual mock creation
     //private List<String> mock = mock(List.class);

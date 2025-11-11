@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import com.ust.formacion.unit_testing.business.BusinessService;
 
 //TESTING BASICO SIN MOCKS, solo usando JUnit5 (Jupiter) y stubs
-class StubUnitTestingApplicationTests {
+class StubUnitTestingApplicationTests_2 {
 	@Test
 	public void calculateSumUsingDataService_basic() {
 		BusinessService business = new BusinessService(new DataServiceStub());

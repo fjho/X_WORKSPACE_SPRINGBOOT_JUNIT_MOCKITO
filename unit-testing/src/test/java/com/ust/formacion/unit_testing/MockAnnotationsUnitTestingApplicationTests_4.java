@@ -14,7 +14,7 @@ import com.ust.formacion.unit_testing.data.DataService;
 
 //TESTING usando Injected MOCKS Junit5 + Mockito
 @ExtendWith(MockitoExtension.class)
-class MockAnnotationsUnitTestingApplicationTests {
+class MockAnnotationsUnitTestingApplicationTests_4 {
 
 	@Mock
 	DataService dataServiceMock;
