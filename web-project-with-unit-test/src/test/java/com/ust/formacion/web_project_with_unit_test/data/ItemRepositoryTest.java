@@ -7,10 +7,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.core.env.Environment;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.ust.formacion.web_project_with_unit_test.model.Item;
 import com.ust.formacion.web_project_with_unit_test.repositories.ItemRepository;
@@ -29,6 +31,13 @@ public class ItemRepositoryTest {
 
     @Autowired
     private ItemRepository itemRepository;
+
+
+    @AfterAll
+    static void cleanDb(@Autowired JdbcTemplate jdbcTemplate) {
+        jdbcTemplate.execute("DELETE FROM ITEM");
+    }
+
 
     @Test
     //Las consultas se hacen a la BD H" que se crea en memoria definida en src/test/resources/application-test.properties

@@ -3,11 +3,13 @@ package com.ust.formacion.web_project_with_unit_test.integrationTests;
 import static org.mockito.Mockito.when;
 
 import org.json.JSONException;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
 import org.skyscreamer.jsonassert.JSONAssert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 
 import com.ust.formacion.web_project_with_unit_test.model.Item;
@@ -17,6 +19,13 @@ import com.ust.formacion.web_project_with_unit_test.repositories.ItemRepository;
 // Se levanta el contexto de Spring Boot y se prueba el endpoint real con la base de datos real en un puerto aleatorio
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class ItemControllerIntegrationTest {
+
+    
+    @AfterAll
+    static void cleanDb(@Autowired JdbcTemplate jdbcTemplate) {
+        jdbcTemplate.execute("DELETE FROM ITEM");
+    }
+
 
     // Inyectamos el TestRestTemplate para hacer llamadas HTTP al endpoint
     // TestRestTemplate es una clase de Spring Boot que facilita las pruebas de servicios RESTful
